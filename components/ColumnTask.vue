@@ -11,12 +11,12 @@
       }"
       @click="goToTask(task)"
     >
-      <span class="w-full flex-no-shrink font-bold">
+      <span class="w-100 flex-shrink-0 bold">
         {{ task.name }}
       </span>
       <p
         v-if="task.description"
-        class="w-full flex-no-shrink mt-1 text-sm"
+        class="w-100 flex-shrink-0 mt-1 small"
       >
         {{ task.description }}
       </p>
@@ -25,11 +25,11 @@
 </template>
 
 <script>
-import AppDrag from './AppDrag';
-import AppDrop from './AppDrop';
-import taskMixins from '@/plugins/taskMixins';
+    import AppDrag from './AppDrag';
+    import AppDrop from './AppDrop';
+    import taskMixins from '@/plugins/taskMixins';
 
-export default {
+    export default {
   components: { AppDrag, AppDrop },
   mixins: [taskMixins],
   props: {

@@ -1,6 +1,9 @@
 <template>
-  <div class="board">
-    <div class="flex flex-row items-start">
+  <div
+    class="board overflow-auto p-3"
+    :style="{height: `${height}px`}"
+  >
+    <div class="d-flex flex-row align-items-start">
       <BoardColumn
         v-for="(column, $columnIndex) of board.columns"
         :key="$columnIndex"
@@ -9,20 +12,20 @@
         :board="board"
       />
 
-      <div class="column flex">
-        <input
+      <div class="d-flex flex-column new-column">
+        <b-form-input
           v-model="newColumnName"
           type="text"
-          class="p-2 mr-2 flex-grow"
-          placeholder="New Column Name"
+          class="p-3 mr-2 flex-grow border-0"
+          placeholder="نام جدید ستون"
           @keyup.enter="createColumn"
-        >
+        />
       </div>
     </div>
 
     <div
       v-if="isTaskOpen"
-      class="task-bg"
+      class="task-bg position-absolute"
       @click.self="close"
     >
       <router-view />
@@ -31,22 +34,28 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import BoardColumn from '@/components/BoardColumn';
+    import { mapState } from 'vuex';
+    import BoardColumn from '@/components/BoardColumn';
 
-export default {
+    export default {
   components: { BoardColumn },
-  data () {
-    return {
+        data: () => ({
+            height: 0,
       newColumnName: ''
-    };
-  },
+        }),
   computed: {
     ...mapState(['board']),
     isTaskOpen () {
       return this.$route.name === 'task';
     }
   },
+        created() {
+            if (!process.browser) {
+                return;
+            }
+
+            this.height = window.innerHeight;
+        },
   methods: {
     close () {
       this.$router.push({ name: 'board' });
@@ -61,3 +70,8 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+  @import "../assets/scss/dep";
+  @import "../assets/scss/components/task";
+</style>

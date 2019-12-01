@@ -29,6 +29,13 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
+    bodyAttrs: {
+      dir: 'rtl',
+      class: 'rtl'
+    },
+    htmlAttrs: {
+      lang: 'fa'
+    },
     __dangerouslyDisableSanitizers: ['script']
   },
 

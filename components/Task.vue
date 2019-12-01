@@ -1,7 +1,7 @@
 <template>
   <div class="task-view">
     <div class="flex flex-col flex-grow items-start justify-between px-4">
-      <input
+      <b-form-input
         type="text"
         class="p-2 w-full mr-2 block text-xl font-bold"
         :value="task.name"
@@ -9,7 +9,7 @@
         @keyup.enter="updateTaskProperty($event, 'name')"
       >
 
-      <textarea
+      <b-form-textarea
         class="relative w-full bg-transparent px-2 border mt-2 h-64 border-none leading-normal"
         :value="task.description"
         @change="updateTaskProperty($event, 'description')"
@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+    import { mapGetters } from 'vuex';
 
-export default {
+    export default {
   computed: {
     ...mapGetters(['getTask']),
     task () {

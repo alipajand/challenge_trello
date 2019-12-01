@@ -9,7 +9,7 @@
         fromColumnIndex: columnIndex
       }"
     >
-      <div class="flex items-center mb-2 font-bold">
+      <div class="d-flex justify-content-center mb-2 bold">
         {{ column.name }}
       </div>
       <div class="list-reset">
@@ -23,24 +23,24 @@
           :board="board"
         />
 
-        <input
+        <b-form-input
           type="text"
-          class="block p-2 w-full bg-transparent"
-          placeholder="+ Enter new task"
+          class="p-3 w-100 bg-transparent"
+          placeholder="+ یک کارت جدید"
           @keyup.enter="createTask($event, column.tasks)"
-        >
+        />
       </div>
     </AppDrag>
   </AppDrop>
 </template>
 
 <script>
-import ColumnTask from './ColumnTask';
-import AppDrag from './AppDrag';
-import AppDrop from './AppDrop';
-import taskMixins from '@/plugins/taskMixins';
+    import ColumnTask from './ColumnTask';
+    import AppDrag from './AppDrag';
+    import AppDrop from './AppDrop';
+    import taskMixins from '@/plugins/taskMixins';
 
-export default {
+    export default {
   components: {
     ColumnTask,
     AppDrag,

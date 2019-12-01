@@ -24,6 +24,7 @@ module.exports = {
     'generator-star-spacing': 0,
     'space-before-function-paren': 0,
     'indent': 0,
+    'no-unsed-vars': 0,
     'no-useless-escape': 0,
     'quotes': [
       'error',
