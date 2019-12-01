@@ -1,8 +1,14 @@
 module.exports = {
   mode: 'universal',
-  server: {
-    host: '0.0.0.0',
-    port: 3000
+  auth: {
+    redirect: false,
+    strategies: {
+      local: {
+        endpoints: false,
+        tokenRequired: true,
+        tokenType: 'Bearer'
+      }
+    }
   },
   head: {
     noscript: [
@@ -60,7 +66,7 @@ module.exports = {
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
-          test: /\.(js|vue|scss|css)$/,
+          test: /\.(js|vue|css)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/,
           options: {
