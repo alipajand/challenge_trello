@@ -1,7 +1,4 @@
-# vue-card-assignment
-
-> My groundbreaking Nuxt.js project
-
+# Vue Card Assignment
 ## Build Setup
 
 ``` bash
