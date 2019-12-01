@@ -16,4 +16,7 @@ $ yarn start
 $ yarn run generate
 ```
 
+## Project View
+![Screenshot](screenshot/image.png)
+
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
